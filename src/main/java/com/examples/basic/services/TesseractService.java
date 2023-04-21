@@ -29,9 +29,12 @@ public class TesseractService {
             api = new TessBaseAPI();
 
             // Initialize tesseract-ocr with English, without specifying tessdata path
-            if (api.Init(TESS_DATA_PATH, "tha") != 0) {
+            if (api.Init(TESS_DATA_PATH, "tha+eng") != 0) {
                 throw new Exception("Could not initialize tesseract.");
             }
+            
+            // Use Tesseract API to pass in the value of the input image's resolution
+            api.SetVariable("user_defined_dpi", "150");
 
             // Open input image with leptonica library
             if (urlAddress == null || urlAddress.trim().equals("")) urlAddress = defaultURL;
