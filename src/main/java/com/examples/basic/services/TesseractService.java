@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 public class TesseractService {
     
     private static final String TESS_DATA_PATH = "/usr/share/tesseract-ocr/4.00/tessdata";
-    private static final String defaultURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Computer_modern_sample.svg/1920px-Computer_modern_sample.svg.png";
     private final Logger log = LoggerFactory.getLogger(TesseractService.class);
     
     public String process(String urlAddress) {
@@ -26,20 +25,18 @@ public class TesseractService {
         TessBaseAPI api = null;
         PIX image = null;
         try {
+            // Open input image with leptonica library
+            URL url = new URL(urlAddress);
+            File file = Loader.cacheResource(url);            
+            
             api = new TessBaseAPI();
-
             // Initialize tesseract-ocr with English, without specifying tessdata path
-            if (api.Init(TESS_DATA_PATH, "tha+jpn+eng") != 0) {
+            if (api.Init(TESS_DATA_PATH, "tha+eng") != 0) {
                 throw new Exception("Could not initialize tesseract.");
             }
             
             // Use Tesseract API to pass in the value of the input image's resolution
-            api.SetVariable("user_defined_dpi", "150");
-
-            // Open input image with leptonica library
-            if (urlAddress == null || urlAddress.trim().equals("")) urlAddress = defaultURL;
-            URL url = new URL(urlAddress);
-            File file = Loader.cacheResource(url);
+            api.SetVariable("user_defined_dpi", "120");
             
             // Open input image with leptonica library
             image = pixRead(file.getAbsolutePath());
