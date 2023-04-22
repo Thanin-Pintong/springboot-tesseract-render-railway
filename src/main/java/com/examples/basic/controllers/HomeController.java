@@ -1,6 +1,9 @@
 package com.examples.basic.controllers;
 
 import com.examples.basic.services.TesseractService;
+import java.io.UnsupportedEncodingException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +20,8 @@ public class HomeController {
     private TesseractService tesseractService;    
 
     @RequestMapping(value = "/", method = { RequestMethod.GET, RequestMethod.POST })
-    public String home(HttpServletRequest request, Model model) {
+    public String home(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("UTF-8");
         String urlAddress = request.getParameter("address");
         if (urlAddress == null) urlAddress = defaultURL;
         model.addAttribute("address", urlAddress);

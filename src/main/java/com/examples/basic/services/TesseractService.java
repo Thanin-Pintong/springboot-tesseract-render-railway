@@ -16,7 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class TesseractService {
     
-    private static final String TESS_DATA_PATH = "/usr/share/tesseract-ocr/4.00/tessdata";
+    //private static final String TESS_DATA_PATH = "/usr/share/tesseract-ocr/4.00/tessdata";
+    private static final String TESS_DATA_PATH = "C:\\msys64\\mingw64\\share\\tessdata";
     private final Logger log = LoggerFactory.getLogger(TesseractService.class);
     
     public String process(String urlAddress) {
