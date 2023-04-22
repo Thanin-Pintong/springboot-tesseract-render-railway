@@ -30,7 +30,7 @@ public class TesseractService {
             File file = Loader.cacheResource(url);            
             
             api = new TessBaseAPI();
-            // Initialize tesseract-ocr with English, without specifying tessdata path
+            // Initialize tesseract-ocr with Thai+English, with specifying tessdata path
             if (api.Init(TESS_DATA_PATH, "tha+eng") != 0) {
                 throw new Exception("Could not initialize tesseract.");
             }

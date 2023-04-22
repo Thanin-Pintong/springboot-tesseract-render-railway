@@ -20,7 +20,7 @@ Local Development Machine :
 >* Change to the folder from cloning. You can delete the folder '.git', then initialize it again by GitHub recommendation.
 >* Don't forget to run 'git add target/springboot-tesseract-render-railway-1.0.jar' before Git commit.
 
-Hub Docker :
+Docker Hub :
 >* Login Docker Hub, then create a repository. (optional)
 >* Use a local machine (x86_64) running docker service to build an Ubuntu 20.04 image with JDK 1.8, Maven 3.6 and 
     Tesseract 4.1, then push it to Docker Hub. (optional)
