@@ -17,7 +17,7 @@
 
 Local Development Machine :
 >* Clone this repository from GitHub into local machine.
->* Change to the folder from cloning. You can delete the folder '.git', then initialize Git by GitHub recommendation.
+>* Change to the folder from cloning. You can delete the folder '.git', then initialize it again by GitHub recommendation.
 >* Don't forget to run 'git add target/springboot-tesseract-render-railway-1.0.jar' before Git commit.
 
 Hub Docker :
