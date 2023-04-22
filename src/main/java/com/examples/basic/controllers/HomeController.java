@@ -20,8 +20,8 @@ public class HomeController {
     private TesseractService tesseractService;    
 
     @RequestMapping(value = "/", method = { RequestMethod.GET, RequestMethod.POST })
-    public String home(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
-        request.setCharacterEncoding("UTF-8");
+    public String home(HttpServletRequest request, Model model) {
+        System.out.println("address=" + request.getParameter("address"));
         String urlAddress = request.getParameter("address");
         if (urlAddress == null) urlAddress = defaultURL;
         model.addAttribute("address", urlAddress);
