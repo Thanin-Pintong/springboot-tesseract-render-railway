@@ -21,9 +21,8 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = { RequestMethod.GET, RequestMethod.POST })
     public String home(HttpServletRequest request, Model model) {
-        System.out.println("address=" + request.getParameter("address"));
         String urlAddress = request.getParameter("address");
-        if (urlAddress == null) urlAddress = defaultURL;
+        if (urlAddress == null) urlAddress = defaultURL;        
         model.addAttribute("address", urlAddress);
         model.addAttribute("message", tesseractService.process(urlAddress));
         return "index.html";

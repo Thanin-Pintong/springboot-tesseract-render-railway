@@ -5,6 +5,7 @@
     <groupId>com.examples</groupId>
     <artifactId>springboot-tesseract-render-railway</artifactId>
     <version>1.0</version>
+    <packaging>jar</packaging>
     <name>SpringBoot Tesseract on Render or Railway</name>
     <description>A basic Spring Boot project (Tomcat 9) with Tesseract on Render or Railway</description>
     
@@ -130,7 +131,7 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>            
-        </dependency>                                                  
+        </dependency>
     </dependencies>
 
     <build>
